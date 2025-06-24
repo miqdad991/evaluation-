@@ -52,7 +52,7 @@ class TaskController extends Controller
 
         if (!empty($validated['kpis'])) {
             foreach ($validated['kpis'] as $kpi) {
-                $kpiModel = PositionKpi::find($kpi['position_kpi_id']);
+                $kpiModel = PositionKPI::find($kpi['position_kpi_id']);
                 $weight = $kpiModel->weight ?? 0;
 
                 TaskKpiReview::create([

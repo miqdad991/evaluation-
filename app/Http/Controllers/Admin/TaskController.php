@@ -93,7 +93,7 @@ class TaskController extends Controller
         // Save KPI reviews with weighted score calculation
         if (!empty($validated['kpis'])) {
             foreach ($validated['kpis'] as $kpi) {
-                $kpiModel = PositionKpi::find($kpi['position_kpi_id']);
+                $kpiModel = PositionKPI::find($kpi['position_kpi_id']);
                 $weight = $kpiModel->weight ?? 0;
 
                 TaskKpiReview::create([
@@ -200,7 +200,7 @@ class TaskController extends Controller
         $weightSum = 0;
 
         foreach ($kpis as $kpi) {
-            $weight = \App\Models\PositionKpi::find($kpi['id'])->weight;
+            $weight = \App\Models\PositionKPI::find($kpi['id'])->weight;
             $score = $kpi['score'];
 
             $total += $score * $weight;

@@ -10,7 +10,7 @@ class Position extends Model
 
     public function kpis()
     {
-        return $this->hasMany(PositionKPI::class);
+        return $this->hasMany(PositionKpi::class);
     }
 
     public function users()

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\PositionKPI;
+use App\Models\PositionKpi;
 use App\Models\Sprint;
 use App\Models\Task;
 use App\Models\TaskKpiReview;

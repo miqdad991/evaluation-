@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PositionKPI extends Model
+class PositionKpi extends Model
 {
     protected $table = 'position_kpis'; // 👈 fix the table name here
 

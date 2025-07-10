@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\PositionKPI;
+use App\Models\PositionKpi;
 use App\Models\Sprint;
 use App\Models\Task;
 use App\Models\TaskKpiReview;
@@ -93,7 +93,7 @@ class TaskController extends Controller
         // Save KPI reviews with weighted score calculation
         if (!empty($validated['kpis'])) {
             foreach ($validated['kpis'] as $kpi) {
-                $kpiModel = PositionKPI::find($kpi['position_kpi_id']);
+                $kpiModel = PositionKpi::find($kpi['position_kpi_id']);
                 $weight = $kpiModel->weight ?? 0;
 
                 TaskKpiReview::create([
@@ -172,7 +172,7 @@ class TaskController extends Controller
         // Sync KPI reviews
         if (!empty($validated['kpis'])) {
             foreach ($validated['kpis'] as $kpi) {
-                $kpiModel = PositionKPI::find($kpi['position_kpi_id']);
+                $kpiModel = PositionKpi::find($kpi['position_kpi_id']);
                 $weight = $kpiModel->weight ?? 0;
 
                 $review = TaskKpiReview::updateOrCreate(
@@ -200,7 +200,7 @@ class TaskController extends Controller
         $weightSum = 0;
 
         foreach ($kpis as $kpi) {
-            $weight = \App\Models\PositionKPI::find($kpi['id'])->weight;
+            $weight = PositionKpi::find($kpi['id'])->weight;
             $score = $kpi['score'];
 
             $total += $score * $weight;
